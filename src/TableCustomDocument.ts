@@ -14,7 +14,6 @@ export function getNonce() {
   }
   return text;
 }
-
 export class TsvCustomDocumentProvider
   implements vscode.CustomTextEditorProvider
 {

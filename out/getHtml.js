@@ -153,19 +153,13 @@ function createEditorHtml(webview, context, config, initialVars) {
 							<th>
 								<div class="options-title clickable" onclick="toggleOptionsBar()">
 									<span>
-										<i id="options-bar-icon" class="fas fa-chevron-right"></i> Read options
+										<i id="options-bar-icon" class="fas fa-chevron-right"></i>
 									</span>
 								</div>
 							</th>
-							<th>
-								<div class="options-title clickable" onclick="toggleOptionsBar()">
-										Write options
-								</div>
-							</th>
+							
 							<th style="width: 100%;">
 								<div class="options-title">
-										<div class="clickable" onclick="toggleOptionsBar()">Preview</div>
-
 										<vscode-button appearance="icon" class="mar-left-half clickable" onclick="generateCsvPreview()" title="Refresh the preview">
 										<span>
 											<i class="fas fa-redo-alt"></i>
@@ -251,6 +245,9 @@ function createEditorHtml(webview, context, config, initialVars) {
 												<vscode-button appearance="icon" id="table-zoom-icon" class="clickable" title="Resets the table content zoom" onclick="resetTableContentZoom()">
 													<span>
 													<i class="fas fa-search-plus"></i>
+													</span>
+													<span>
+													<i class="fas fa-bars"></i>
 													</span>
 												</vscode-button>
 											</div>
@@ -507,7 +504,7 @@ function createEditorHtml(webview, context, config, initialVars) {
 					
 					<vscode-button appearance="secondary" id="add-row-btn" class="on-readonly-disable-btn" onclick="addRow()">
 						<span slot="start" class="icon is-small"><i class="fas fa-plus"></i></span>
-						<span style="width: 4rem">Add row</span>
+						<i  style="margin-top: 2.5px;" class="fas fa-bars"></i>
 					</vscode-button>
 					<div class="row-col-insert-btns">
 					
@@ -521,7 +518,9 @@ function createEditorHtml(webview, context, config, initialVars) {
 
 					<vscode-button appearance="secondary" id="add-col-btn" class="on-readonly-disable-btn" onclick="addColumn()">
 						<span slot="start" class="icon is-small"><i class="fas fa-plus"></i></span>
-						<span style="width: 5rem">Add column</span>
+						<span>
+							<i class="fas fa-bars fa-rotate-90"></i>
+						</span>
 					</vscode-button>
 					<div class="row-col-insert-btns">
 						<vscode-button appearance="secondary" class="on-readonly-disable-btn" onclick="insertColLeft()" title="Insert column left to current column [ctrl+shift+alt+left]">
@@ -534,8 +533,7 @@ function createEditorHtml(webview, context, config, initialVars) {
 
 					<vscode-button appearance="secondary" id="btn-apply-changes-to-file-and-save" class="mar-left on-readonly-disable-btn" onclick="postApplyContent(true)">
 						<span slot="start" class="icon is-small"><i class="fas fa-save"></i></span>
-						<span style="width: 13rem">Apply changes to file and save</span>
-
+						
 						<span slot="end" class="icon is-small">
 							<span class="tooltip is-tooltip-multiline mar-left-half"
 								data-tooltip="Applies the csv content back to the source file and saves the source file (if something changed) [ctrl+s/cmd+s]">
@@ -544,7 +542,7 @@ function createEditorHtml(webview, context, config, initialVars) {
 						</span>
 					</vscode-button>
 
-					<vscode-button appearance="secondary" id="btn-apply-changes-to-file" class="on-readonly-disable-btn mar-left-half" onclick="postApplyContent(false)">
+					<!-- <vscode-button appearance="secondary" id="btn-apply-changes-to-file" class="on-readonly-disable-btn mar-left-half" onclick="postApplyContent(false)">
 						<span slot="start" class="icon is-small"><i class="fas fa-reply"></i></span>
 						<span style="width: 9rem">Apply changes to file</span>
 
@@ -553,7 +551,7 @@ function createEditorHtml(webview, context, config, initialVars) {
 								<i class="fas fa-question-circle"></i>
 							</span>
 						</span>
-					</vscode-button>
+					</vscode-button> -->
 
 					<div id="status-info-wrapper">
 						<div>
@@ -563,7 +561,7 @@ function createEditorHtml(webview, context, config, initialVars) {
 
 					<div class="flexed">
 
-						<div>
+						<!-- <div>
 							<vscode-button appearance="secondary" id="show-comments-btn" style="margin-right: 1em; height: 100%" onclick="showOrHideAllComments(true)">
 								<span slot="start" class="icon is-small"><i class="far fa-comments"></i></span>
 								<span style="width: 7rem">Show comments</span>
@@ -579,14 +577,13 @@ function createEditorHtml(webview, context, config, initialVars) {
 									</span>
 								</span>
 								</vscode-button>
-						</div>
+						</div> -->
 
 						
 						<div id="tools-menu-wrapper" class="btn-with-menu-wrapper">
 
 							<vscode-button appearance="secondary" style="height: 100%;" class="on-readonly-disable-btn btn-with-menu" onclick="toggleToolMenu()">
 								<span slot="start" class="icon is-small"><i class="fas fa-toolbox"></i></span>
-								<span style="width: 2.8rem">Tools</span>
 								<span slot="end" class="icon is-small"><i id="tools-menu-btn-icon" class="fas fa-chevron-down"></i></span>
 							</vscode-button>
 
@@ -621,7 +618,6 @@ function createEditorHtml(webview, context, config, initialVars) {
 
 						<vscode-button appearance="secondary" class="" onclick="toggleHelpModal(true)">
 							<span slot="start" class="icon is-small"><i class="fas fa-question"></i></span>
-							<span style="width: 2rem">Help</span>
 						</vscode-button>
 					</div>
 

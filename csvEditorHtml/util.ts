@@ -998,8 +998,8 @@ function setupAndApplyInitialConfigPart1(
 
     toggleOptionsBar(true);
 
-    showCommentsBtn.style.display = "none";
-    hideCommentsBtn.style.display = "";
+    // showCommentsBtn.style.display = "none";
+    // hideCommentsBtn.style.display = "";
 
     return;
   }
@@ -1087,13 +1087,13 @@ function setupAndApplyInitialConfigPart1(
     }
   }
 
-  if (initialConfig.initiallyHideComments) {
-    showCommentsBtn.style.display = "";
-    hideCommentsBtn.style.display = "none";
-  } else {
-    showCommentsBtn.style.display = "none";
-    hideCommentsBtn.style.display = "";
-  }
+  //   if (initialConfig.initiallyHideComments) {
+  //     showCommentsBtn.style.display = "";
+  //     hideCommentsBtn.style.display = "none";
+  //   } else {
+  //     showCommentsBtn.style.display = "none";
+  //     hideCommentsBtn.style.display = "";
+  //   }
 
   //--- other options
   fixedRowsTopInfoSpan.innerText = fixedRowsTop + "";
