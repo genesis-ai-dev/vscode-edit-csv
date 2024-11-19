@@ -11,7 +11,7 @@ function getResourcePath(webview, context, filePath) {
     //fix for windows because there path.join will use \ as separator and when we inline this string in html/js
     //we get specials strings e.g. c:\n
     // return `vscode-resource:${path.join(context.extensionPath, filePath).replace(/\\/g, '/')}`
-    return `${webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, filePath).replace(/\\/g, '/')))}`;
+    return `${webview.asWebviewUri(vscode.Uri.file(path.join(context.extensionPath, filePath).replace(/\\/g, "/")))}`;
 }
 exports.getResourcePath = getResourcePath;
 /**
@@ -22,37 +22,37 @@ exports.getResourcePath = getResourcePath;
  */
 function createEditorHtml(webview, context, config, initialVars) {
     const _getResourcePath = getResourcePath.bind(undefined, webview, context);
-    let handsontableCss = _getResourcePath('thirdParty/handsontable/handsontable.min.css');
+    let handsontableCss = _getResourcePath("thirdParty/handsontable/handsontable.min.css");
     // let handsontableCss = _getResourcePath('thirdParty/handsontable/handsontable.css')
-    let handsontableJs = _getResourcePath('thirdParty/handsontable/handsontable.min.js');
+    let handsontableJs = _getResourcePath("thirdParty/handsontable/handsontable.min.js");
     // let handsontableJs = _getResourcePath('thirdParty/handsontable/handsontable.js')
-    let papaparseJs = _getResourcePath('thirdParty/papaparse/papaparse.min.js');
+    let papaparseJs = _getResourcePath("thirdParty/papaparse/papaparse.min.js");
     // let papaparseJs = _getResourcePath('thirdParty/papaparse/papaparse.js')
-    let regressionJS = _getResourcePath('thirdParty/regression/regression.min.js');
-    const mousetrapJs = _getResourcePath('thirdParty/mousetrap/mousetrap.min.js');
-    const mousetrapBindGlobalJs = _getResourcePath('thirdParty/mousetrap/plugins/global-bind/mousetrap-global-bind.min.js');
-    const bigJs = _getResourcePath('thirdParty/big.js/big.min.js');
-    const bigJsToFormat = _getResourcePath('thirdParty/toFormat/toFormat.min.js');
-    let fontAwesomeCss = _getResourcePath('thirdParty/fortawesome/fontawesome-free/css/all.min.css');
+    let regressionJS = _getResourcePath("thirdParty/regression/regression.min.js");
+    const mousetrapJs = _getResourcePath("thirdParty/mousetrap/mousetrap.min.js");
+    const mousetrapBindGlobalJs = _getResourcePath("thirdParty/mousetrap/plugins/global-bind/mousetrap-global-bind.min.js");
+    const bigJs = _getResourcePath("thirdParty/big.js/big.min.js");
+    const bigJsToFormat = _getResourcePath("thirdParty/toFormat/toFormat.min.js");
+    let fontAwesomeCss = _getResourcePath("thirdParty/fortawesome/fontawesome-free/css/all.min.css");
     //we need to load the font manually because the url() seems to not work properly with vscode-resource
-    const iconFont = _getResourcePath('thirdParty/fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2');
-    const mainCss = _getResourcePath('csvEditorHtml/main.css');
-    const darkThemeCss = _getResourcePath('csvEditorHtml/dark.css');
-    const lightThemeCss = _getResourcePath('csvEditorHtml/light.css');
-    const hightContrastThemeCss = _getResourcePath('csvEditorHtml/high_contrast.css');
-    const settingsOverwriteCss = _getResourcePath('csvEditorHtml/settingsOverwrite.css');
+    const iconFont = _getResourcePath("thirdParty/fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2");
+    const mainCss = _getResourcePath("csvEditorHtml/main.css");
+    const darkThemeCss = _getResourcePath("csvEditorHtml/dark.css");
+    const lightThemeCss = _getResourcePath("csvEditorHtml/light.css");
+    const hightContrastThemeCss = _getResourcePath("csvEditorHtml/high_contrast.css");
+    const settingsOverwriteCss = _getResourcePath("csvEditorHtml/settingsOverwrite.css");
     //scripts
-    const progressJs = _getResourcePath('csvEditorHtml/out/progressbar.js');
-    const findWidgetJs = _getResourcePath('csvEditorHtml/out/findWidget.js');
-    const ioJs = _getResourcePath('csvEditorHtml/out/io.js');
-    const uiJs = _getResourcePath('csvEditorHtml/out/ui.js');
-    const utilJs = _getResourcePath('csvEditorHtml/out/util.js');
-    const autoFillJs = _getResourcePath('csvEditorHtml/out/autoFill.js');
-    const mainJs = _getResourcePath('csvEditorHtml/out/main.js');
-    const beforeDomLoadedJs = _getResourcePath('csvEditorHtml/out/beforeDomLoaded.js');
-    const toolkit = _getResourcePath('node_modules/@vscode/webview-ui-toolkit/dist/toolkit.min.js');
-    const dayJS = _getResourcePath('node_modules/dayjs/dayjs.min.js');
-    const dayJSPlugins1 = _getResourcePath('node_modules/dayjs/plugin/customParseFormat.js');
+    const progressJs = _getResourcePath("csvEditorHtml/out/progressbar.js");
+    const findWidgetJs = _getResourcePath("csvEditorHtml/out/findWidget.js");
+    const ioJs = _getResourcePath("csvEditorHtml/out/io.js");
+    const uiJs = _getResourcePath("csvEditorHtml/out/ui.js");
+    const utilJs = _getResourcePath("csvEditorHtml/out/util.js");
+    const autoFillJs = _getResourcePath("csvEditorHtml/out/autoFill.js");
+    const mainJs = _getResourcePath("csvEditorHtml/out/main.js");
+    const beforeDomLoadedJs = _getResourcePath("csvEditorHtml/out/beforeDomLoaded.js");
+    const toolkit = _getResourcePath("node_modules/@vscode/webview-ui-toolkit/dist/toolkit.min.js");
+    const dayJS = _getResourcePath("node_modules/dayjs/dayjs.min.js");
+    const dayJSPlugins1 = _getResourcePath("node_modules/dayjs/plugin/customParseFormat.js");
     //use blocks so vs code adds folding
     let findWidgetHtml = ``;
     {
@@ -933,6 +933,31 @@ function createEditorHtml(webview, context, config, initialVars) {
 	</div>
 		`;
     }
+    let confirmDeleteRowModalHtml = ``;
+    {
+        confirmDeleteRowModalHtml = /*html*/ `
+		<div id="confirm-delete-row-modal" class="modal modal-centered">
+			<div class="modal-background"></div>
+			<div class="modal-content">
+				<div class="box">
+					<h3 class="title is-3">Confirm Delete Row</h3>
+					<p>Are you sure you want to delete this row? This action cannot be undone.</p>
+					<div style="margin-top: 1em">
+						<vscode-button class="" onclick="confirmDeleteRow()">
+							<span style="width: 3rem">Delete</span>
+						</vscode-button>
+						<vscode-button appearance="secondary" style="margin-left: 0.5em" onclick="toggleDeleteRowModal(false)">
+							<span style="width: 3rem">Cancel</span>
+						</vscode-button>
+					</div>
+				</div>
+			</div>
+			<button class="modal-close is-large clickable" aria-label="close" onclick="toggleDeleteRowModal(false)">
+				<i class="fas fa-times"></i>
+			</button>
+		</div>
+		`;
+    }
     return /*html*/ `
 	<!DOCTYPE html>
 	<html>
@@ -977,6 +1002,8 @@ function createEditorHtml(webview, context, config, initialVars) {
 	${askReloadFileModalHtml}
 
 	${sourceFileChangedModalHtml}
+
+	${confirmDeleteRowModalHtml}
 
 
 	<script async type="module" src="${toolkit}"></script>

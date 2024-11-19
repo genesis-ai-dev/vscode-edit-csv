@@ -868,6 +868,27 @@
 		</button>-->
 	</div>
 
+	<div id="confirm-delete-row-modal" class="modal modal-centered">
+		<div class="modal-background"></div>
+		<div class="modal-content">
+			<div class="box">
+				<h3 class="title is-3">Confirm Delete Row</h3>
+				<p>Are you sure you want to delete this row? This action cannot be undone.</p>
+				<div style="margin-top: 1em">
+					<vscode-button class="" onclick="confirmDeleteRow()">
+						<span style="width: 3rem">Delete</span>
+					</vscode-button>
+					<vscode-button appearance="secondary" style="margin-left: 0.5em" onclick="toggleDeleteRowModal(false)">
+						<span style="width: 3rem">Cancel</span>
+					</vscode-button>
+				</div>
+			</div>
+		</div>
+		<button class="modal-close is-large clickable" aria-label="close" onclick="toggleDeleteRowModal(false)">
+			<i class="fas fa-times"></i>
+		</button>
+	</div>
+
 	<script src="../node_modules/dayjs/dayjs.min.js"></script>
 	<script src="../node_modules/dayjs/plugin/customParseFormat.js"></script>
 	<!-- TODO min ??? -->
