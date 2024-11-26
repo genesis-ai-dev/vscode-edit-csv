@@ -682,13 +682,8 @@ function removeColumn(index: number) {
 
   if (!hot) throw new Error("table was null");
 
-  hot.alter("remove_col", index);
-
-  //keep header in sync with the number of columns
-  //this is done in the hooks
-
-  //we could get 0 cols...
-  checkIfHasHeaderReadOptionIsAvailable(false);
+  pendingColumnDeleteIndex = index;
+  toggleDeleteColumnModal(true);
 }
 
 /**
@@ -2133,6 +2128,7 @@ function getFirstAndLastVisibleRows(): { first: number; last: number } {
 }
 
 let pendingRowDeleteIndex: number | null = null;
+let pendingColumnDeleteIndex: number | null = null; // Add this line
 
 function toggleDeleteRowModal(show: boolean) {
   const modal = document.getElementById("confirm-delete-row-modal");
@@ -2152,4 +2148,25 @@ function confirmDeleteRow() {
     pendingRowDeleteIndex = null;
   }
   toggleDeleteRowModal(false);
+}
+
+function toggleDeleteColumnModal(show: boolean) {
+  const modal = document.getElementById("confirm-delete-column-modal");
+  if (modal) {
+    modal.classList.toggle("is-active", show);
+  }
+}
+
+function confirmDeleteColumn() {
+  if (pendingColumnDeleteIndex !== null) {
+    if (!hot) throw new Error("table was null");
+    hot.alter("remove_col", pendingColumnDeleteIndex);
+    // Update any necessary states or UI elements after deletion
+    pendingColumnDeleteIndex = null;
+    // Keep header in sync with the number of columns
+    // This is done in the hooks
+    // We could get 0 cols...
+    checkIfHasHeaderReadOptionIsAvailable(false);
+  }
+  toggleDeleteColumnModal(false);
 }

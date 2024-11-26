@@ -28,7 +28,7 @@ node_modules/dayjs/**/*
 !node_modules/dayjs/plugin/customParseFormat.js
 backup
 images/**
-!images/logo.png
+!images/tablelogo.png
 scripts.md
 thirdParty/info.md
 thirdParty/handsontable/handsontable.css

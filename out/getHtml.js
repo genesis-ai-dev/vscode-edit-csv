@@ -954,6 +954,32 @@ function createEditorHtml(webview, context, config, initialVars) {
 		</div>
 		`;
     }
+    // Define the HTML content for the Confirm Delete Column Modal
+    let confirmDeleteColumnModalHtml = ``;
+    {
+        confirmDeleteColumnModalHtml = /*html*/ `
+      <div id="confirm-delete-column-modal" class="modal modal-centered">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <h3 class="title is-3">Confirm Delete Column</h3>
+            <p>Are you sure you want to delete this column? This action cannot be undone.</p>
+            <div style="margin-top: 1em">
+              <vscode-button class="" onclick="confirmDeleteColumn()">
+                <span style="width: 3rem">Delete</span>
+              </vscode-button>
+              <vscode-button appearance="secondary" style="margin-left: 0.5em" onclick="toggleDeleteColumnModal(false)">
+                <span style="width: 3rem">Cancel</span>
+              </vscode-button>
+            </div>
+          </div>
+        </div>
+        <button class="modal-close is-large clickable" aria-label="close" onclick="toggleDeleteColumnModal(false)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    `;
+    }
     return /*html*/ `
 	<!DOCTYPE html>
 	<html>
@@ -1001,6 +1027,8 @@ function createEditorHtml(webview, context, config, initialVars) {
 
 	${confirmDeleteRowModalHtml}
 
+	
+	${confirmDeleteColumnModalHtml}
 
 	<script async type="module" src="${toolkit}"></script>
 	<script src="${dayJS}"></script>

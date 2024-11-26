@@ -1,11 +1,15 @@
 {
-  "name": "vscode-edit-csv",
-  "displayName": "Edit CSV",
-  "description": "extension to edit csv files with a table ui",
-  "version": "0.10.0",
+  "name": "vscode-edit-table",
+  "displayName": "Edit Table",
+  "description": "extension to edit csv, tsv, and tab files with a table ui",
+  "version": "0.0.1",
   "license": "MIT",
-  "icon": "images/logo.png",
-  "publisher": "janisdd",
+  "icon": "images/tablelogo.png",
+  "publisher": "project-accelerate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/genesis-ai-dev/vscode-edit-csv"
+  },
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -13,16 +17,11 @@
     "Other"
   ],
   "keywords": [
-    "CSV"
+    "CSV",
+    "TSV",
+    "TAB"
   ],
   "preview": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/janisdd/vscode-edit-csv.git"
-  },
-  "bugs": {
-    "url": "https://github.com/janisdd/vscode-edit-csv/issues"
-  },
   "galleryBanner": {
     "color": "#687bff",
     "theme": "light"
@@ -765,7 +764,10 @@
   },
   "dependencies": {
     "@vscode/webview-ui-toolkit": "1.0.0",
-    "dayjs": "1.11.13"
+    "dayjs": "1.11.13",
+    "cookie": "^0.7.0",
+    "cross-spawn": "^7.0.4",
+    "path-to-regexp": "^6.2.2"
   },
   "devDependencies": {
     "@sweetalert2/theme-dark": "3.2.0",
